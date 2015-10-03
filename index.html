@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="play.css"
+</head>
+<body>
+
+<div id="container">
+    <div>
+        <h1>CSSplay</h1>
+        <p>Learn css selectors by playing a game of selecting
+        the targeted colored boxes.
+        <h3>Quick css reference</h3>
+        <p>
+        .foo -- refers to all the elements with a class of foo
+        <p>
+        #bar -- refers to <em>the</em> element with an id bar
+        </p>
+    </div>
+    <hr>
+
+    <div id="main">
+        <h2 class="title"></h2>
+        <p class="completed">✓ completed</p>
+        <br class="clear"/>
+        <p class="goal"></p>
+        <p class="info"></p>
+        <button class="prev">previous</button>
+        <button class="next">next</button>
+
+        <div>
+            <span>enter selector:</span>
+            <code><input size="50" class=""> {
+                border: dashed;
+            }</code>
+        </div>
+        <p class="errmsg">&nbsp;</p>
+        <div class="contents">
+        </div>
+    </div>
+    <div id="levels" style="display: block;">
+        <div class="level">
+            <h2 class="title">Tutorial 1: Class selectors</h2>
+            <p class="goal">Select the red box</p>
+            <p class="info">
+            Each box has a class that corresponds to their color.
+            For example, a red box has a class of "red", and a blue box has a class of "blue".
+            <br>
+            <br>
+            To select the red box, enter .red in the input field and press [enter]
+            </p>
+            <div class="contents">
+                <div class="box red _X_"></div>
+                <div class="box blue"></div>
+                <div class="box green"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 2: Class selectors</h2>
+            <p class="goal">Select the blue box</p>
+            <p class="info">To select the blue box, enter .blue in the input field and press [enter]</p>
+            <div class="contents">
+                <div class="box red"></div>
+                <div class="box blue _X_"></div>
+                <div class="box green"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 3: Class selectors</h2>
+            <p class="goal">Select the green box</p>
+            <p class="info">To select the green box, enter .green in the input field and press [enter]</p>
+            <div class="contents">
+                <div class="box red"></div>
+                <div class="box blue"></div>
+                <div class="box green _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 4: Class selectors</h2>
+            <p class="goal">Select all the blue boxes</p>
+            <p class="info">
+            A class can be applied to more than one element.
+            A selector of .red will select all the red boxes.
+            Enter .blue in the input field and press [enter]
+            </p>
+            <div class="contents">
+                <div class="box blue _X_"></div>
+                <div class="box blue _X_"></div>
+                <div class="box green"></div>
+                <div class="box blue _X_"></div>
+                <div class="box blue _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 5: ID selectors</h2>
+            <p class="goal">Select the alpha red box</p>
+            <p class="info">
+            Whereas "class" is used for elements that have
+            common properties, "id" is used to uniquely identify
+            an element within a page.
+            <br>
+            The text inside the boxes corresponds to their id.
+            In this case, one red box has an id "alpha",
+            while the blue box has an id "bravo".
+            <br>
+            <br>
+            Try entering #bravo first to see the blue box selected.<br>
+            After that, Enter #alpha in the input field to select the
+            first red box.
+            </p>
+            <div class="contents">
+                <div id="alpha" class="box red _X_"></div>
+                <div class="box red "></div>
+                <div class="box green "></div>
+                <div id="bravo" class="box blue "></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 6: Adjacent selectors</h2>
+            <p class="goal">Select all the red boxes that are preceded by a blue box</p>
+            <p class="info">
+            The symbol + indicates an element adjacent with respect to another element.
+            For example, X + Y will select all the element Y that has an X before it.
+            <br>
+            <br>
+            To achieve the current goal, enter the following:  &nbsp;<code>.blue + .red</code>
+            </p>
+            <div class="contents">
+                <div class="box green "></div>
+                <div class="box blue "></div>
+                <div class="box red _X_"></div>
+                <div class="box green "></div>
+                <div class="box red "></div>
+                <div class="box blue "></div>
+                <div class="box blue "></div>
+                <div class="box red _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 7: Adjacent selectors</h2>
+            <p class="goal">Select the green box that is preceded by a red box</p>
+            <p class="info">
+            You know what to do by now right? <br>
+            The green after a red is red plus green.
+            </p>
+            <div class="contents">
+                <div class="box green "></div>
+                <div class="box blue "></div>
+                <div class="box red"></div>
+                <div class="box green _X_"></div>
+                <div class="box red "></div>
+                <div class="box blue "></div>
+                <div class="box blue "></div>
+                <div class="box red"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 8: Adjacent selectors</h2>
+            <p class="goal">Select the blue box after a blue box</p>
+            <p class="info">
+            It's blue after blue, don't blew it!
+            </p>
+            <div class="contents">
+                <div class="box green "></div>
+                <div class="box blue "></div>
+                <div class="box red"></div>
+                <div class="box green "></div>
+                <div class="box red "></div>
+                <div class="box blue "></div>
+                <div class="box blue _X_"></div>
+                <div class="box red"></div>
+                <hr />
+                <div class="box blue "></div>
+                <div class="box green "></div>
+                <div class="box red"></div>
+                <div class="box blue "></div>
+                <div class="box blue _X_"></div>
+                <div class="box red "></div>
+                <div class="box green "></div>
+                <div class="box red"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 9: Grouping selectors</h2>
+            <p class="goal">Select green and blue boxes</p>
+            <p class="info">
+            Use a <em>comma</em> when using more than one selectors.<br>
+            <code>.green, .red</code> will select both green
+            and red while <code>.red, blue</code> will
+            select red and blue.
+            <br>
+            <br>
+            To achieve the current goal, enter the following: <code>.green, .blue</code>
+            <br>
+            <br>
+            Note: You are free to explore. Try typing different combinations
+            and see what happens.
+            Making mistakes is crucial to the learning process!
+            </p>
+            <div class="contents">
+                <div class="box red"></div>
+                <div class="box blue _X_"></div>
+                <div class="box green _X_"></div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<script src="cssplay.js"></script>
+</body>
+</html>
