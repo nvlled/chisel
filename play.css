@@ -107,3 +107,13 @@ input.error {
     background-color: #500;
     color: white;
 }
+
+.nope {
+    background-color: black;
+    color: black;
+    padding: 2px;
+}
+
+.nope:hover {
+    color: white;
+}

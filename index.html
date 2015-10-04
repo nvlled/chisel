@@ -5,21 +5,13 @@
 <link rel="stylesheet" href="play.css"
 </head>
 <body>
-
 <div id="container">
     <div>
         <h1>CSSplay</h1>
         <p>Learn css selectors by playing a game of selecting
         the targeted colored boxes.
-        <h3>Quick css reference</h3>
-        <p>
-        .foo -- refers to all the elements with a class of foo
-        <p>
-        #bar -- refers to <em>the</em> element with an id bar
-        </p>
     </div>
     <hr>
-
     <div id="main">
         <h2 class="title"></h2>
         <p class="completed">✓ completed</p>
@@ -163,6 +155,51 @@
             </div>
         </div>
         <div class="level">
+            <h2 class="title">Tutorial 7.1: Adjacent selectors</h2>
+            <p class="goal">Select the red box after charlie</p>
+            <p class="info">
+            You've seen adjacent selectors with class.
+            You can also do it with id selectors.
+            For instance, to select the blue box after alpha,
+            you do:  <code>#alpha + .blue</code>
+            <br>
+            <br>
+            </p>
+            <div class="contents">
+                <div class="box green "></div>
+                <div id="charlie" class="box blue "></div>
+                <div class="box red _X_"></div>
+                <div id="alpha" class="box green "></div>
+                <div class="box blue "></div>
+                <div class="box blue "></div>
+                <div class="box blue "></div>
+                <div class="box red"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 7.2: More adjacent selectors</h2>
+            <p class="goal">Select the red box preceded by two blue boxes</p>
+            <p class="info">
+            You are not limited to specifying to just two adjacent elements.
+            You can, for example, select the red box preceded by two red boxes
+            by <br> the selector: <code>.red + .red + .red</code>
+            <br>
+            <br>
+            Sum of two blues and one red reaches the goal.
+            </p>
+            <div class="contents">
+                <div class="box blue "></div>
+                <div class="box blue "></div>
+                <div class="box red _X_"></div>
+                <div class="box blue "></div>
+                <div class="box red "></div>
+                <div class="box red "></div>
+                <div class="box red "></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
             <h2 class="title">Tutorial 8: Adjacent selectors</h2>
             <p class="goal">Select the blue box after a blue box</p>
             <p class="info">
@@ -204,13 +241,109 @@
             <br>
             Note: You are free to explore. Try typing different combinations
             and see what happens.
-            Making mistakes is crucial to the learning process!
             </p>
             <div class="contents">
                 <div class="box red"></div>
                 <div class="box blue _X_"></div>
                 <div class="box green _X_"></div>
                 <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 10: Grouping selectors</h2>
+            <p class="goal">Select all the blue and red boxes</p>
+            <p class="info">
+            Since class selectors will select more than one class,
+            entering <code>.green, .blue</code> will select all, not just one,
+            green and blue boxes.
+            </p>
+            <div class="contents">
+                <div class="box red _X_"></div>
+                <div class="box red _X_"></div>
+                <div class="box blue _X_"></div>
+                <div class="box green"></div>
+                <div class="box green"></div>
+                <div class="box blue _X_"></div>
+                <div class="box red _X_"></div>
+                <div class="box red _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 11: Grouping selectors</h2>
+            <p class="goal">Select alpha, bravo, and charlie</p>
+            <p class="info">
+            Any selectors can be grouped, not just classes, but also
+            id selectors and others. Also, any number of selectors
+            can be grouped, not just two.
+            <br>
+            <br>
+            For the goal, enter <code>#alpha, #bravo, #charlie</code>
+            <br>
+            <br>
+            Note: The order doesn't matter. <code>#charlie, #alpha, #bravo</code>
+            or other permutations still achieves the same thing.
+            </p>
+            <div class="contents">
+                <div id="alpha" class="box red _X_"></div>
+                <div class="box blue"></div>
+                <div class="box green "></div>
+                <hr />
+                <div class="box red"></div>
+                <div id="bravo" class="box blue _X_"></div>
+                <div class="box green"></div>
+                <hr />
+                <div class="box red "></div>
+                <div class="box blue"></div>
+                <div id="charlie" class="box green _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 12: Grouping selectors</h2>
+            <p class="goal">Select alpha, charlie, and all the blue boxes</p>
+            <p class="info">
+            You know the drill... sortie alpha, charlie, blue guys..!
+            </p>
+            <div class="contents">
+                <div id="alpha" class="box red _X_"></div>
+                <div class="box blue _X_"></div>
+                <div class="box green "></div>
+                <hr />
+                <div class="box red"></div>
+                <div id="bravo" class="box blue _X_"></div>
+                <div class="box green"></div>
+                <hr />
+                <div class="box red "></div>
+                <div class="box blue _X_"></div>
+                <div id="charlie" class="box green _X_"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 13: More grouping selectors</h2>
+            <p class="goal">Select the blue box after charlie and all the green boxes</p>
+            <p class="info">
+            As mentioned earlier, any selectors can grouped.
+            This includes the adjacent <code>+</code> selector.
+            <br>
+            <br>
+            This may be a tricky one. If you can't figure it out, mouseover
+            on the following blacked text to reveal the answer:
+            <span class="nope">#charlie + .blue, .green</span>
+            </p>
+            <div class="contents">
+                <div class="box blue "></div>
+                <div id="charlie" class="box red "></div>
+                <div class="box blue _X_"></div>
+                <div class="box red "></div>
+                <div class="box blue "></div>
+                <hr />
+                <div class="box green _X_"></div>
+                <div class="box blue "></div>
+                <div class="box green _X_"></div>
+                <div class="box blue "></div>
+                <div class="box green _X_"></div>
             </div>
         </div>
     </div>
