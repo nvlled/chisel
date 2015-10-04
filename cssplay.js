@@ -28,8 +28,17 @@ function getLevelData(node) {
     }
 }
 
+function identifyNodes(node) {
+    var nodes = node.querySelectorAll("*");
+    for (var i = 0; i < nodes.length; i++) {
+        nodes[i].setAttribute("data-id", i);
+    }
+}
+
 function setLevel(mainNode, levelNode) {
     var levelData = getLevelData(levelNode);
+    identifyNodes(levelData.node);
+
     mainNode.querySelector(".title").textContent = levelData.title;
     mainNode.querySelector(".info").innerHTML = levelData.info;
     mainNode.querySelector(".goal").textContent = levelData.goal;
@@ -108,28 +117,37 @@ function getSelected(sel) {
 }
 
 function checkAnswer() {
-    try {
-        var nodes = getSelected(input.value);
-        var targetNodes = getTargetNodes();
+    var nodes = getSelected(input.value);
+    var targetNodes = getTargetNodes();
 
-        if (nodes.length != targetNodes.length)
+    function getId(node) {
+        return node.getAttribute("data-id");
+    }
+
+    var nodeSet = {};
+    var targetSet = {};
+
+    for (var i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        nodeSet[getId(node)] = node;
+    }
+    for (var i = 0; i < targetNodes.length; i++) {
+        var node = targetNodes[i];
+        targetSet[getId(node)] = node;
+    }
+
+    for (var i = 0; i < nodes.length; i++) {
+        if (!targetSet[getId(nodes[i])])
             return;
+    }
+    for (var i = 0; i < targetNodes.length; i++) {
+        if (!nodeSet[getId(targetNodes[i])])
+            return;
+    }
 
-        for (var i = 0; i < nodes.length; i++) {
-            var ok = false;
-            for (var j = 0; j < targetNodes.length; j++) {
-                if (nodes[i] == targetNodes[j]) {
-                    ok = true;
-                    break;
-                }
-            }
-            if (!ok)
-                return;
-        }
-        console.log("correct ✓");
-        document.querySelector("button.next").focus();
-        completed.style.display = "inherit";
-    } catch (e) { }
+    console.log("correct ✓");
+    document.querySelector("button.next").focus();
+    completed.style.display = "inherit";
 }
 
 function showSelected() {

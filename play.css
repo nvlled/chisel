@@ -53,7 +53,7 @@ body {
 .clear {
     clear: left;
 }
-.contents hr { clear: both; color: transparent; }
+.contents hr { clear: both; color: #111; }
 
 .boxer {
     border: solid 2px;
