@@ -35,11 +35,11 @@ function identifyNodes(node) {
     }
 }
 
-function setLevel(mainNode, levelNode) {
+function setLevel(mainNode, index, levelNode) {
     var levelData = getLevelData(levelNode);
     identifyNodes(levelData.node);
 
-    mainNode.querySelector(".title").textContent = levelData.title;
+    mainNode.querySelector(".title").textContent = index+1 + ": " + levelData.title;
     mainNode.querySelector(".info").innerHTML = levelData.info;
     mainNode.querySelector(".goal").textContent = levelData.goal;
     var contentsNode = mainNode.querySelector(".contents");
@@ -183,7 +183,7 @@ function setLevelNo(n) {
     var level = levels.children[n];
     if (level) {
         store.set("level", n);
-        setLevel(main, level);
+        setLevel(main, n, level);
 
         if (state.completedLevels[n]) {
             completed.style.display = "inherit";
