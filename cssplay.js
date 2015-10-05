@@ -94,6 +94,7 @@ function clearSelected() {
         nodes[i].classList.remove("selected");
     }
     completed.style.display = "none";
+    input.classList.remove("ok");
 }
 
 function getTargetNodes() {
@@ -148,6 +149,7 @@ function checkAnswer() {
     console.log("correct ✓");
     document.querySelector("button.next").focus();
     completed.style.display = "inherit";
+    input.classList.add("ok");
 }
 
 function showSelected() {
@@ -198,16 +200,6 @@ function setLevelNo(n) {
     }
 }
 
-input.addEventListener("keypress", function(e) {
-    if (e.keyCode == 13) {
-        showSelected();
-        checkAnswer();
-        store.set("savedSelector."+state.level, input.value);
-    } else if (e.keyCode == 27) {
-        document.querySelector("button.prev").focus();
-    }
-});
-
 function prevLevel() {
     if (state.level > 0) {
         state.level--;
@@ -222,6 +214,22 @@ function nextLevel() {
     }
 }
 
+function tryInputSelector() {
+    showSelected();
+    checkAnswer();
+    store.set("savedSelector."+state.level, input.value);
+}
+
+input.addEventListener("keypress", function(e) {
+    if (e.keyCode == 13) {
+        tryInputSelector();
+    } else if (e.keyCode == 27) {
+        document.querySelector("button.prev").focus();
+    }
+});
+
+
+main.querySelector("button.enter").onclick = tryInputSelector;
 main.querySelector("button.prev").onclick = prevLevel;
 main.querySelector("button.next").onclick = nextLevel;
 
