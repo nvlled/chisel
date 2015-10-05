@@ -66,6 +66,10 @@ body {
     /*counter-increment: nope;*/
 }
 
+.boxer > hr {
+    visibility: hidden;
+}
+
 b {
     color: red;
 }
@@ -74,6 +78,9 @@ b {
 }
 
 .goal { color: yellow; }
+.goal:before {
+    content: "Goal: ";
+}
 .info { width: 60%; }
 
 .title {
@@ -116,4 +123,8 @@ input.error {
 
 .nope:hover {
     color: white;
+}
+
+code {
+    color: #bfb;
 }

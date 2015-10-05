@@ -52,7 +52,11 @@
         <div class="level">
             <h2 class="title">Tutorial 2: Class selectors</h2>
             <p class="goal">Select the blue box</p>
-            <p class="info">To select the blue box, enter .blue in the input field and press [enter]</p>
+            <p class="info">
+            As you may have noticed, the elements selected with your selector
+            are given a yellow dashed border.
+            <br>
+            To select the blue box, enter .blue in the input field and press [enter]</p>
             <div class="contents">
                 <div class="box red"></div>
                 <div class="box blue _X_"></div>
@@ -63,7 +67,13 @@
         <div class="level">
             <h2 class="title">Tutorial 3: Class selectors</h2>
             <p class="goal">Select the green box</p>
-            <p class="info">To select the green box, enter .green in the input field and press [enter]</p>
+            <p class="info">
+            Pretty simple, right? Also, notice the target elements
+            that need to be selected have the symbol ◎ in them.
+            <br>
+            <br>
+            To select the green box, enter .green in the input field and press [enter]
+            </p>
             <div class="contents">
                 <div class="box red"></div>
                 <div class="box blue"></div>
@@ -121,6 +131,12 @@
             For example, X + Y will select all the element Y that has an X before it.
             <br>
             <br>
+            (Note: addition is not related in this case, css just reuses the symbol for something else)
+            <br>
+            <br>
+            Try entering <code>.green + .blue</code> to see only the first blue box selected.
+            <br>
+            <br>
             To achieve the current goal, enter the following:  &nbsp;<code>.blue + .red</code>
             </p>
             <div class="contents">
@@ -139,8 +155,12 @@
             <h2 class="title">Tutorial 7: Adjacent selectors</h2>
             <p class="goal">Select the green box that is preceded by a red box</p>
             <p class="info">
-            You know what to do by now right? <br>
-            The green after a red is red plus green.
+            Note that the selector on the right side of the +
+            will be the basis for selection. That is to say,
+            with .green + .blue, .blue will be selected not .green.
+            <br>
+            <br>
+            To achieve the goal, enter: <code>.red + .green</code>
             </p>
             <div class="contents">
                 <div class="box green "></div>
@@ -203,7 +223,10 @@
             <h2 class="title">Tutorial 8: Adjacent selectors</h2>
             <p class="goal">Select the blue box after a blue box</p>
             <p class="info">
-            It's blue after blue, don't blew it!
+            I read as red<br>
+            but can't grin when it's green<br>
+            blue after blue<br>
+            now I am blown away<br>
             </p>
             <div class="contents">
                 <div class="box green "></div>
@@ -237,10 +260,6 @@
             <br>
             <br>
             To achieve the current goal, enter the following: <code>.green, .blue</code>
-            <br>
-            <br>
-            Note: You are free to explore. Try typing different combinations
-            and see what happens.
             </p>
             <div class="contents">
                 <div class="box red"></div>
@@ -256,6 +275,10 @@
             Since class selectors will select more than one class,
             entering <code>.green, .blue</code> will select all, not just one,
             green and blue boxes.
+            <br>
+            <br>
+            Note: You are free to explore. Try typing different combinations
+            and see what happens.
             </p>
             <div class="contents">
                 <div class="box red _X_"></div>
@@ -303,7 +326,7 @@
             <h2 class="title">Tutorial 12: Grouping selectors</h2>
             <p class="goal">Select alpha, charlie, and all the blue boxes</p>
             <p class="info">
-            You know the drill... sortie alpha, charlie, blue guys..!
+            You know the drill: sortie alpha, charlie, and uhh... blue guys..!
             </p>
             <div class="contents">
                 <div id="alpha" class="box red _X_"></div>
