@@ -153,7 +153,8 @@ function checkAnswer() {
 }
 
 function showSelected() {
-    errmsg.textContent = "";
+    errmsg.style.visibility = "hidden";
+    errmsg.textContent = "_";
     clearSelected();
 
     if (!input.value) {
@@ -173,9 +174,11 @@ function showSelected() {
             }
         } else {
             errmsg.textContent = "no element found";
+            errmsg.style.visibility = "inherit";
         }
     } catch (e) {
         errmsg.textContent = "invalid syntax";
+        errmsg.style.visibility = "inherit";
     }
 }
 

@@ -74,7 +74,10 @@ b {
     color: red;
 }
 .errmsg {
+    display: inline-block;
     color: red;
+    text-align: center;
+    width: 50%;
 }
 
 .goal { color: yellow; }
@@ -127,4 +130,14 @@ input.error {
 
 code {
     color: #bfb;
+}
+
+#x {
+    display: inline-block;
+}
+
+.enter {
+    margin: 5px;
+    display: block;
+    width: 100%;
 }
