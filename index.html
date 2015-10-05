@@ -119,7 +119,27 @@
                 <div id="alpha" class="box red _X_"></div>
                 <div class="box red "></div>
                 <div class="box green "></div>
+                <div class="box blue "></div>
                 <div id="bravo" class="box blue "></div>
+                <hr />
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 5.1: ID selectors</h2>
+            <p class="goal">Select the bravo blue box</p>
+            <p class="info">
+            Remember that <em>.</em> is used for classes, <em>#</em> is used
+            for ids.
+            <br>
+            <br>
+            Select bravo by entering #bravo.
+            </p>
+            <div class="contents">
+                <div id="alpha" class="box red "></div>
+                <div class="box red "></div>
+                <div class="box green "></div>
+                <div class="box blue "></div>
+                <div id="bravo" class="box blue _X_"></div>
                 <hr />
             </div>
         </div>
@@ -367,6 +387,152 @@
                 <div class="box green _X_"></div>
                 <div class="box blue "></div>
                 <div class="box green _X_"></div>
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 14: Descendant selectors</h2>
+            <p class="goal">Select the blue child box of abc</p>
+            <p class="info">
+            As you may know already, elements in html can contain other elements.
+            In this case, there are two container with ids #abc and #xyz.
+            #abc has child (or descendant) elements of red, blue, green, and red boxes.
+            #xyz has similar but distinct child elements.
+            <br>
+            <br>
+            The relationship of descendants in css is specified by
+            putting one selector after another separated by whitespace.
+            <br>
+            <br>
+            For instance, to select the red child box of xyz: <code>#xyz .red</code>
+            <br>
+            To select the green box inside abc: <code>#abc .green</code>
+            <br>
+            <br>
+            To achieve the goal, simply putting <code>.blue</code>
+            will not work since that will select also the blue box
+            inside xyz. You must do: <code>#abc .blue</code>
+            </p>
+            <div class="contents">
+                <div id="abc" class="boxer">
+                    <hr>
+                    <div class="box red "></div>
+                    <div class="box blue _X_"></div>
+                    <div class="box green "></div>
+                    <div class="box red "></div>
+                    <hr>
+                </div>
+                <div id="xyz" class="boxer">
+                    <hr>
+                    <div class="box red "></div>
+                    <div class="box blue "></div>
+                    <div class="box green "></div>
+                    <div class="box red "></div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 15: Descendant selectors</h2>
+            <p class="goal">Select the red child boxes of xyz</p>
+            <p class="info">
+            Since this is almost the same as the previous one,
+            you should be able to this one without further
+            explanations. If not: <span class="nope">#xyz .red</span>
+            </p>
+            <div class="contents">
+                <div id="abc" class="boxer">
+                    <hr>
+                    <div class="box red "></div>
+                    <div class="box blue"></div>
+                    <div class="box green "></div>
+                    <div class="box red "></div>
+                    <hr>
+                </div>
+                <div id="xyz" class="boxer">
+                    <hr>
+                    <div class="box red _X_"></div>
+                    <div class="box blue "></div>
+                    <div class="box green "></div>
+                    <div class="box red _X_"></div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 15: Descendant selectors</h2>
+            <p class="goal">Select the red child boxes of xyz, and the blue box of abc</p>
+            <p class="info">
+            Just group two selectors, one for the child of xyz and the other for abc.
+            <br>
+            <span class="nope">#abc .blue, #xyz .red</span>
+            </p>
+            <div class="contents">
+                <div id="abc" class="boxer">
+                    <hr>
+                    <div class="box red "></div>
+                    <div class="box blue _X_"></div>
+                    <div class="box green "></div>
+                    <div class="box red "></div>
+                    <hr>
+                </div>
+                <div id="xyz" class="boxer">
+                    <hr>
+                    <div class="box red _X_"></div>
+                    <div class="box blue "></div>
+                    <div class="box green "></div>
+                    <div class="box red _X_"></div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="level">
+            <h2 class="title">Tutorial 15: (Deeper) Descendant selectors</h2>
+            <p class="goal">Select green descendants of #gramps</p>
+            <p class="info">
+            Html elements can other elements, which in turn
+            can contain other elements, and so on, to infinity.
+            Elements nested one after another forms a tree,
+            like a family tree.
+            <br>
+            <br>
+            Since the structure is anologous to a family tree,
+            the terms used to express the relationships (such
+            as parent, child, descendants) are also used.
+            <br>
+            <br>
+            The descendant selector, as you have until now,
+            is not limited to the children. It can also
+            select grandchilren and other descendants.
+            <br>
+            <br>
+            Thus, to select all green descendants of gramps:
+            <code>#gramps .green</code>
+            </p>
+            <div class="contents">
+                <div id="gramps" class="boxer">
+                    <hr>
+                    <div id="alpha"class="box red "></div>
+                    <div id="bravo" class="box green _X_"></div>
+                    <div class="box blue "></div>
+                    <div class="box blue "></div>
+                    <hr>
+                    <div id="pah" class="boxer">
+                        <hr>
+                        <div id="delta" class="box red "></div>
+                        <div id="charlie" class="box blue "></div>
+                        <div class="box green _X_"></div>
+                        <div class="box green _X_"></div>
+                        <hr>
+                    </div>
+                </div>
+                <div id="othergramps" class="boxer">
+                    <hr>
+                    <div class="box blue "></div>
+                    <div class="box green "></div>
+                    <div class="box red "></div>
+                    <div class="box red "></div>
+                    <hr>
+                </div>
             </div>
         </div>
     </div>
