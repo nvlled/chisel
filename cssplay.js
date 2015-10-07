@@ -95,6 +95,9 @@ function clearSelected() {
     }
     completed.style.display = "none";
     input.classList.remove("ok");
+    var levelLink = document.querySelector("#level-link-"+state.level);
+    if (levelLink)
+        levelLink.classList.remove("ok");
 }
 
 function getTargetNodes() {
@@ -147,9 +150,13 @@ function checkAnswer() {
     }
 
     console.log("correct ✓");
-    document.querySelector("button.next").focus();
     completed.style.display = "inherit";
     input.classList.add("ok");
+    store.set("completed."+state.level, "✓");
+
+    var levelLink = document.querySelector("#level-link-"+state.level);
+    if (levelLink)
+        levelLink.classList.add("ok");
 }
 
 function showSelected() {
@@ -196,8 +203,7 @@ function setLevelNo(n) {
 
         var val = store.get("savedSelector."+state.level);
         input.value = val || "";
-        showSelected();
-        checkAnswer();
+        tryInputSelector();
     } else {
         console.log("invalid level number: ", n);
     }
@@ -218,6 +224,7 @@ function nextLevel() {
 }
 
 function tryInputSelector() {
+    store.set("completed."+state.level, "");
     showSelected();
     checkAnswer();
     store.set("savedSelector."+state.level, input.value);
@@ -234,6 +241,12 @@ function buildIndex() {
         li.appendChild(a);
         var level = getLevelData(levels.children[i]);
         a.textContent = level.title + ": " + level.goal;
+
+        if (store.get("completed."+i))
+            a.classList.add("ok");
+
+        a.id = "level-link-"+i;
+        a.classList.add("level-link");
         a.href = "#";
         (function(no) {
             a.onclick = function() {
@@ -258,12 +271,18 @@ function showIndex() {
 input.addEventListener("keypress", function(e) {
     if (e.keyCode == 13) {
         tryInputSelector();
+        if (store.get("completed."+state.level))
+            main.querySelector("button.next").focus();
     } else if (e.keyCode == 27) {
-        document.querySelector("button.prev").focus();
+        document.querySelector("button.enter").focus();
     }
 });
+main.querySelector("button.enter").onclick = function() {
+    tryInputSelector();
+    if (store.get("completed."+state.level))
+        main.querySelector("button.next").focus();
+};
 
-main.querySelector("button.enter").onclick = tryInputSelector;
 main.querySelector("button.prev").onclick = prevLevel;
 main.querySelector("button.next").onclick = nextLevel;
 document.querySelector("#show-index").onclick = function() {
@@ -285,7 +304,7 @@ document.addEventListener("keypress", function(e) {
         prevLevel();
     else if (e.key == 'n')
         nextLevel();
-})
+});
 
 state.level = +store.get("level") || 0;
 setLevelNo(state.level);

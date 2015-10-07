@@ -146,6 +146,11 @@ a {
     color: #eee;
 }
 
+a.level-link.ok:after {
+    color: green;
+    content: "  ✓";
+}
+
 #index li {
     margin-top: 7px;
 }
