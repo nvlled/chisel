@@ -141,3 +141,11 @@ code {
     display: block;
     width: 100%;
 }
+
+a {
+    color: #eee;
+}
+
+#index li {
+    margin-top: 7px;
+}

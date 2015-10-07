@@ -223,6 +223,38 @@ function tryInputSelector() {
     store.set("savedSelector."+state.level, input.value);
 }
 
+function buildIndex() {
+    console.log("building index...")
+    var index = document.querySelector("#index");
+    var indexList = index.querySelector("ol");
+    var children = levels.children;
+    for (var i = 0; i < children.length; i++) {
+        var a = document.createElement("a");
+        var li = document.createElement("li");
+        li.appendChild(a);
+        var level = getLevelData(levels.children[i]);
+        a.textContent = level.title + ": " + level.goal;
+        a.href = "#";
+        (function(no) {
+            a.onclick = function() {
+                state.level = no;
+                setLevelNo(no);
+                index.style.display = "none";
+                return false;
+            }
+        })(i);
+        indexList.appendChild(li);
+    }
+    index.setAttribute("data-built", "yes");
+}
+
+function showIndex() {
+    var index = document.querySelector("#index");
+    if (index.getAttribute("data-built") != "yes")
+        buildIndex();
+    index.style.display = "inherit";
+}
+
 input.addEventListener("keypress", function(e) {
     if (e.keyCode == 13) {
         tryInputSelector();
@@ -231,10 +263,17 @@ input.addEventListener("keypress", function(e) {
     }
 });
 
-
 main.querySelector("button.enter").onclick = tryInputSelector;
 main.querySelector("button.prev").onclick = prevLevel;
 main.querySelector("button.next").onclick = nextLevel;
+document.querySelector("#show-index").onclick = function() {
+    var index = document.querySelector("#index");
+    if (index.style.display == "none") {
+        showIndex();
+    } else {
+        index.style.display = "none";
+    }
+}
 
 document.addEventListener("keypress", function(e) {
     if (e.target == input)
